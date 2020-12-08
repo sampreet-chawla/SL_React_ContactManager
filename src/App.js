@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import "./styles.css";
 
 
@@ -49,10 +50,20 @@ return (<div>
 
 }
 
+// Adding Code for Counter
+let counter = 0;
+function Counter () {
+  counter++;  
+  ReactDOM.render(<h4>counter: {counter} </h4>, document.getElementById('counter'));
+}
+
 export default function App() {
   return (
     <div className="App">
+      <div id="counter"  />
       <ContactManager />
     </div>
   );
 }
+
+setInterval(Counter, 1000);
